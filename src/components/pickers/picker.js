@@ -1,29 +1,21 @@
 import React, { Component } from 'react'
-import { StyleSheet, Picker, Text } from 'react-native'
+import { Picker, Text } from 'react-native'
+import styles from '../../styles/styles'
+import PickerItems from './pickerItems'
 
-class PickerList extends Component {
-  state = {
-  selected1: 'key1',
-  selected2: 'key1',
-  selected3: 'key1',
-}
+export default class PickerList extends Component {
   render() {
+    const { selected, updateSelected, options } = this.props
     return(
       <Picker
         style={styles.picker}
-        selectedValue={this.state.language}
-        >
-        <Picker.Item label="Pokemon" value="java" />
-        <Picker.Item label="Mo" value="js" />
+        selectedValue={this.props.selected}
+        onValueChange={this.props.updateSelected}
+      >
+      {options.map(option =>
+          <PickerItems label={option} value={option} key={option}/>)
+      }
       </Picker>
     )
   }
 }
-
-var styles = StyleSheet.create({
-  picker: {
-    width: 100,
-  },
-});
-
-module.exports = PickerList
