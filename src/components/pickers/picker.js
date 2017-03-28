@@ -13,7 +13,11 @@ export default class PickerList extends Component {
         onValueChange={this.props.updateSelected}
       >
       {options.map(option =>
-          <PickerItems label={option} value={option} key={option}/>)
+          <PickerItems
+            label={option}
+            value={option}
+            key={option}
+          />)
       }
       </Picker>
     )

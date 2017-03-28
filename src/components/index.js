@@ -10,16 +10,17 @@ export default class Pickersss extends Component {
   }
 
   updateSelected = (select) => {
-    console.log(select)
     this.setState({ selected: select })
   }
 
+  onItemChange = ()
   render(){
     return(
       <View>
         <PickerList
           selected={this.state.selected}
           updateSelected={this.updateSelected}
+          onChange={}
           options={['Pokemon', 'Games', 'React']}/>
         <PostList />
       </View>
